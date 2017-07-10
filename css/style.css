@@ -1,0 +1,125 @@
+@font-face {
+  font-family: 'sell-icon';
+  src:  url('../fonts/sell-icon.eot?vyubqg');
+  src:  url('../fonts/sell-icon.eot?vyubqg#iefix') format('embedded-opentype'),
+    url('../fonts/sell-icon.ttf?vyubqg') format('truetype'),
+    url('../fonts/sell-icon.woff?vyubqg') format('woff'),
+    url('../fonts/sell-icon.svg?vyubqg#sell-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'sell-icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-truck:before {
+  content: "\e900";
+}
+.icon-transfer:before {
+  content: "\e900";
+}
+.icon-transmit:before {
+  content: "\e900";
+}
+.icon-travel:before {
+  content: "\e900";
+}
+.icon-chart:before {
+  content: "\e901";
+}
+.icon-bars:before {
+  content: "\e901";
+}
+.icon-graph:before {
+  content: "\e901";
+}
+.icon-paperplane:before {
+  content: "\e902";
+}
+.icon-send:before {
+  content: "\e902";
+}
+.icon-flight:before {
+  content: "\e902";
+}
+.icon-email:before {
+  content: "\e902";
+}
+.icon-barometer:before {
+  content: "\e903";
+}
+.icon-pen-angled:before {
+  content: "\e904";
+}
+.icon-stop-watch:before {
+  content: "\e905";
+}
+.icon-qq:before {
+  content: "\e90a";
+}
+.icon-wechat:before {
+  content: "\e906";
+}
+.icon-weixin:before {
+  content: "\e906";
+}
+.icon-power-off:before {
+  content: "\e907";
+}
+.icon-light-bulb:before {
+  content: "\e908";
+}
+.icon-mouse:before {
+  content: "\e909";
+}
+.icon-device-camera:before {
+  content: "\f056";
+}
+.icon-file-submodule:before {
+  content: "\f017";
+}
+.icon-hourglass:before {
+  content: "\f09e";
+}
+.icon-mail:before {
+  content: "\f03b";
+}
+.icon-music:before {
+  content: "\e911";
+}
+.icon-film:before {
+  content: "\e913";
+}
+.icon-mic:before {
+  content: "\e91e";
+}
+.icon-file-text2:before {
+  content: "\e926";
+}
+.icon-alarm:before {
+  content: "\e950";
+}
+.icon-mobile:before {
+  content: "\e958";
+}
+.icon-trophy:before {
+  content: "\e99e";
+}
+.icon-switch:before {
+  content: "\e9b6";
+}
+.icon-table2:before {
+  content: "\ea71";
+}
