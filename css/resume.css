@@ -74,7 +74,7 @@ body {
 }
 
 body {
-    font-family: "Microsoft Yahei" calibri;
+    font-family: "Microsoft Yahei";
     font-size: 12px;
     -webkit-font-smoothing: antialiased;
 }
@@ -384,8 +384,8 @@ body {
 }
 
 .desc-item {
-    line-height: 1.4;
-    font-size: 14px;
+    line-height: 1.5;
+    font-size: 12px;
 }
 
 @media(max-width:768px) {
