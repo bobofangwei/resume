@@ -30,13 +30,23 @@ body {
 }
 
 .nav-tabs .nav-item {
-    width: 5px;
-    height: 5px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background-color:#000;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     transition: transform 400ms linear;
     cursor: pointer;
+    position:relative;
+}
+//扩大导航元素的点击区域
+.nav-tabs .nav-item:before{
+    content:"";
+    position:absolute;    
+    top:-5px;
+    bottom:-5px;
+    left:-5px;
+    right:-5px;
 }
 
 .sections-horizontal~.nav-tabs {

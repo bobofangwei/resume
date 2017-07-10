@@ -14,12 +14,12 @@
             this.sectionCount = this.getSectionCount();
             //当前所处的幻灯片索引，如果正在滑动，代表滑动结束之后的幻灯片索引
             //this.curIndex = (this.settings.index >= 0 && this.settings.index <= this.sectionCount - 1) ? this.settings.index : 0;
-            this.prevIndex = 0;
-            this.curIndex = 0;
+            this.prevIndex = -1;
+            this.curIndex = -1;
             //记录每次滑动的方向,初始值为undefined,可选有down,up
             this.direction = undefined;
             this.isRunning = false;
-            this.sections.css('transition', 'transform ' + this.settings.scrollingSpeed + 'ms '+this.settings.easing);
+            this.sections.css('transition', 'transform ' + this.settings.scrollingSpeed + 'ms ' + this.settings.easing);
 
             //如果是横屏
             if (!this.layoutDirection) {
@@ -33,13 +33,13 @@
             }
             this.__initEvent();
 
-            if (this.settings.index > 0 && this.settings.index < this.sectionCount) {
-                var self = this;
-                setTimeout(function() {
-                    self.moveTo(self.settings.index);
-                }, 10);
-                this.moveTo(this.curIndex);
-            }
+            // if (this.settings.index > 0 && this.settings.index < this.sectionCount) {
+            var self = this;
+            setTimeout(function() {
+                self.moveTo(self.settings.index || 0);
+            }, 0);
+            //this.moveTo(this.settings.index||0);
+            // }
 
         },
         __initEvent: function() {
