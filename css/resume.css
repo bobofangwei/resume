@@ -202,7 +202,6 @@ body {
 }
 
 .basic-info .desc .line {
-    content: '';
     position: absolute;
     top: 15px;
     left: -100px;
@@ -213,7 +212,6 @@ body {
 }
 
 .basic-info .desc .circle {
-    content: '';
     position: absolute;
     left: -50px;
     top: 15px;
@@ -397,7 +395,7 @@ body {
         font-size: 14px;
         margin-left: 10px;
     }
-    .arrow-right {
+    .exprerience-list .timeline-half-left {
         display: none;
     }
     .space40 {
@@ -407,3 +405,135 @@ body {
 
 
 /*section2 end*/
+
+
+/*section3 start*/
+
+.skill-title {
+    position: absolute;
+    top: 30px;
+    left: 70px;
+    font-size: 1.8em;
+    padding: 10px 25px;
+    color: #007D9B;
+    border: 1px solid #007D9B;
+}
+
+.skill-list {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.skill-icon {
+    font-size: 40px;
+    background-color: #FFF;
+    font-weight: 400;
+    color: #00B6DD;
+    z-index: 10;
+}
+
+.content-icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #00B6DD;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 35px;
+}
+
+.skill-desc-wrapper {
+    color: #333;
+    /*color:#00B6DD;*/
+    font-size: 14px;
+}
+
+.skill-desc-wrapper .skill-label {
+    font-weight: 600;
+    font-size: 20px;
+    padding: 10px 0;
+    color: #007D9B;
+}
+
+.skill-desc-wrapper .skill-label .skill-percent {
+    margin-left: 15px;
+    font-size: 16px;
+    color: #00B6DD;
+    display: none;
+}
+
+.timeline-half-left .skill-desc-wrapper {
+    text-align: right;
+    padding-right: 50px;
+    line-height: 1.4;
+}
+
+.timeline-half-right .skill-desc-wrapper {
+    text-align: left;
+    padding-left: 50px;
+}
+
+.chart-half {
+    z-index: 1;
+}
+
+.skill-canvas-line {
+    position: absolute;
+    width: 40%;
+    height: 1px;
+    border-top: 1px dashed #00B6DD;
+    z-index: 1;
+    transition: all 0.6s;
+}
+
+.timeline-half-right .skill-canvas-line {
+    left: -50px;
+}
+
+.timeline-half-left .skill-canvas-line {
+    right: -50px;
+}
+
+.skill-list .skill-canvas-wrapper {
+    width: 150px;
+    height:150px;
+    position: absolute;
+}
+
+.skill-list .timeline-half-right .skill-canvas-wrapper {
+    left: 35%;
+    margin-left:-25px;
+    z-index: 10;
+}
+
+.skill-list .timeline-half-left .skill-canvas-wrapper {
+    right: 35%;
+    margin-right:-25px;
+    z-index: 10;
+}
+
+@media(max-width:768px) {
+    .chart-half {
+        display: none;
+    }
+    .skill-desc-wrapper .skill-label .skill-percent {
+        display: inline;
+    }
+    .skill-list .skill-icon {
+        position: absolute;
+        left: 5%;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 30px;
+        transform: translateX(-50%);
+    }
+    .skill-title {
+        left: 50%;
+        top: 10px;
+    }
+}
