@@ -1,4 +1,5 @@
 $(function() {
+    $wrapper = $('.sections');
     $sections = $('.section');
     var windowWidth = $(window).width();
 
@@ -15,24 +16,39 @@ $(function() {
             dom.appendChild(canvas);
         });
     }
+
+    function changeLeftToRight($elem) {
+        $elem.find('.content-half').each(function(index, el) {
+            //对于偶数个（原来在左边）
+            if (index % 2 === 0) {
+                $(el).removeClass('timeline-half-left').addClass('timeline-half-right');
+            }
+        });
+    }
+    function changeRightToLeft($elem){
+         $elem.find('.content-half').each(function(index, el) {
+            //对于偶数个（原来在左边）
+            if (index % 2 === 0) {
+                $(el).removeClass('timeline-half-right').addClass('timeline-half-left');
+            }
+        });
+    }
     //自适应设置
     //当界面宽度<768的时候，调整界面，实现响应式布局
     function reLayout() {
-        var $contents = $sections.eq(2).find('.content-half');
+        //$wrapper.find('*').removeAttr('style');
         if ($(window).width() <= 768) {
-            //使用js实现响应式
-            $contents.each(function(index, el) {
-                //对于偶数个（原来在左边）
-                if (index % 2 === 0) {
-                    $(el).removeClass('timeline-half-left').addClass('timeline-half-right');
-                }
-            });
+            //处理第三个页面
+            changeLeftToRight($sections.eq(2));
+            //处理第四个页面
+            $sections.eq(3).find('.line5').removeClass('leftAnim').addClass('rightMinus');
+            //处理第五个页面
+            changeLeftToRight($sections.eq(4));
+
         } else {
-            $contents.each(function(index, el) {
-                if (index % 2 === 0) {
-                    $(el).removeClass('timeline-half-right').addClass('timeline-half-left');
-                }
-            });
+            changeRightToLeft($sections.eq(2));
+            $sections.eq(3).find('.line5').removeClass('rightMinus').addClass('leftAnim');
+            changeRightToLeft($sections.eq(4));
         }
     }
 
@@ -57,6 +73,7 @@ $(function() {
                 }).find('.fixed').css({
                     'transform': 'translate3d(0,0,0)'
                 });
+
             }
             if (index == 0) {
                 $curTimeline.find('.line').css({
@@ -83,6 +100,13 @@ $(function() {
                     var initLeft = Math.round(parseInt($(elem).css('left')) * 100 / windowWidth);
                     $(elem).css({
                         'left': (initLeft + 5) + '%'
+                    });
+
+                });
+                $curSection.find('.rightMinus').each(function(index, elem) {
+                    var initRight = Math.round(parseInt($(elem).css('right')) * 100 / windowWidth);
+                    $(elem).css({
+                        'right': (initRight - 5) + '%'
                     });
 
                 });
