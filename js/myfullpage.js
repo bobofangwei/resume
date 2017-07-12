@@ -45,7 +45,11 @@
         __initEvent: function() {
             //监听滚轮事件
             var self = this;
-            this.sections.on('transitionend', function(e) {
+            //阻止子元素的transitionend冒泡
+            this.sections.on('transitionend', '*',function(event) {
+                 event.stopPropagation(); 
+            });
+            this.sections.on('transitionend', function(event) {
                 self.isRunning = false;
                 self.direction = undefined;
                 if (self.settings.onLoad) {
