@@ -567,7 +567,7 @@ body {
 .section4 .line1{
     top:8px;
     left:50%;
-    right:30%;
+    right:25%;
 }
 .section4 .line1:before{
     width:10px;
@@ -576,7 +576,7 @@ body {
 .section4 .line2{
     top:8px;
     bottom:75%;
-    right:30%;
+    right:25%;
 }
 .section4 .line2:before{
     width:16px;
@@ -584,13 +584,13 @@ body {
 }
 .section4 .line3{
     top:25%;
-    right:30%;
-    left:40%;
+    right:25%;
+    left:35%;
 }
 .section4 .line4{
     top:25%;
     bottom:0;
-    left:40%;
+    left:35%;
 }
  
 .section4 .icon-item{
@@ -608,21 +608,21 @@ body {
 }
 .section4 .icon-item:nth-of-type(1){
     top:25%;
-    right:30%;
+    right:25%;
     transform:translate3d(50%,-50%,0);
 }
 .section4 .icon-item:nth-of-type(2){
     top:25%;
-    left:40%;
+    left:35%;
     transform:translate3d(-50%,-50%,0) scale(2);
 }
 .section4 .icon-item:nth-of-type(3){
     top:65%;
-    left:40%;
+    left:35%;
 }
 .section4 .works-wrapper{
     position:absolute;
-    right:0;
+    right:-5%;
     top:50%;
     width:60%;
     padding-left:150px;
@@ -654,7 +654,7 @@ body {
         left:5%;
     }
     .section4 .works-wrapper{
-        padding-left:90px;
+        padding-left:50px;
     }
     .section4 .works-title{
         font-size:16px;
