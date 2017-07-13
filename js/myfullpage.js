@@ -20,6 +20,9 @@
             this.direction = undefined;
             this.isRunning = false;
             this.sections.css('transition', 'transform ' + this.settings.scrollingSpeed + 'ms ' + this.settings.easing);
+            // this.sections.css('webkitTransition', 'webkitTransform  ' + this.settings.scrollingSpeed + 'ms ' + this.settings.easing);
+            // this.sections.css('MozTransition', 'MozTransform   ' + this.settings.scrollingSpeed + 'ms ' + this.settings.easing);
+             this.sections.css('-ms-transition', '-ms-transform   ' + this.settings.scrollingSpeed + 'ms ' + this.settings.easing);
 
             //如果是横屏
             if (!this.layoutDirection) {
@@ -46,8 +49,8 @@
             //监听滚轮事件
             var self = this;
             //阻止子元素的transitionend冒泡
-            this.sections.on('transitionend', '*',function(event) {
-                 event.stopPropagation(); 
+            this.sections.on('transitionend', '*', function(event) {
+                event.stopPropagation();
             });
             this.sections.on('transitionend', function(event) {
                 self.isRunning = false;
@@ -172,9 +175,16 @@
             }
             if (this.layoutDirection) {
                 this.sections.css('transform', 'translateY(-' + this.curIndex * 100 + '%)');
+                // this.sections.css('WebkitTransform', 'translateY(-' + this.curIndex * 100 + '%)');
+                 this.sections.css('-ms-transform', 'translateY(-' + this.curIndex * 100 + '%)');
+                //    this.sections.css('MozTransform', 'translateY(-' + this.curIndex * 100 + '%)');
+
             } else {
                 var left = (this.curIndex * 100 / this.sectionCount).toFixed(2);
                 this.sections.css('transform', 'translateX(-' + left + '%)');
+                //     this.sections.css('WebkitTransform', 'translateX(-' + left + '%)');
+                  this.sections.css('-ms-transform', 'translateX(-' + left + '%)');
+                //     this.sections.css('MozTransform', 'translateX(-' + left + '%)');
             }
         }
 
