@@ -897,7 +897,7 @@ body {
 .section6{
     background:#FFF;
 }
-.general-list{
+.general-title-list{
     position:absolute;
     top:0;
     bottom:0;
@@ -923,13 +923,91 @@ body {
     background:url(../img/huanwen.png) no-repeat;
     background-size:100% 100%;
 }
-
+.tixing-wrapper{
+    width:30%;
+    height:85%;
+    position:absolute;
+    top:10%;
+    left:10%;
+    background:url('../img/tixing.png') no-repeat;
+    background-size:100% 100%;
+    transition:transform 0.6s;
+    transform:translate3d(-50px,0,0);
+}
+.tixing-list{
+    width:100%;
+    height:100%;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+}
+.tixing-line-list{
+    position:absolute;
+    top:10%;
+    height:85%;    
+    left:25%;
+    width:25%;
+}
+.tixing-item{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+}
+.tixing-high-item{
+    flex:57;
+    text-align:center;
+}
+.tixing-text-list .tixing-high-item{
+    font-size:14px;
+}
+.tixing-low-item{
+    flex:32;
+}
+.tixing-line-list .tixing-high-item:before{
+    content:'';
+    width:100%;
+    height:2px;
+    background-color:#ccc;    
+}
+.tixing-line-list .tixing-high-item:after{
+    content:'';
+    width:14px;
+    height:14px;
+    background-color:#ccc;
+    margin-right:-7px;
+    border-radius:50%;    
+}
+/*基本组件内容部分*/
+.general-content-wrapper{
+    position:absolute;
+    top:10%;
+    left:50%;
+    width:50%;
+    height:85%;
+}
+.general-content-list{
+    width:80%;
+    margin-left:5%;
+    display: flex;
+    flex-direction:column;
+}
+.general-content-item{
+    flex:89;
+}
+.general-content-item:last-child{
+    flex:57;
+    background-color:rgba(0,0,0,.2);
+}
 @media screen and (max-width: 768px){
     .blue-side{
         width:5%;
     }
     .general-list .main-title{
         color:#333;
+    }
+    .tixing-list,.tixing-wrapper{
+        display: none;
     }
 
 }
@@ -968,9 +1046,11 @@ body {
     flex:1;
     text-align:center;
 }
-.project-img-wrapper{
+.project-list-large .project-img-wrapper{
     width:100%; 
     position:relative;   
+    height:120px;
+    transition:height .6s;
 }
 .project-img-wrapper:before{
     content:'';
@@ -981,12 +1061,13 @@ body {
     width:1px;
     border-left:1px dashed #00B6DD;
 }
-.project-img-wrapper-short{
+/*
+.project-list-large .project-img-wrapper-short{
     height:45%;
 }
-.project-img-wrapper-long{
+.project-list-large .project-img-wrapper-long{
     height:65%;
-}
+}*/
 .project-img-outter{
     display:inline-block;
     width:180px;
