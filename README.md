@@ -1,5 +1,5 @@
 # resume
-[我的的个人线上简历](https://bobofangwei.github.io/resume/resume.htmlhttps://bobofangwei.github.io/resume/resume.html)
+[我的的个人线上简历](https://bobofangwei.github.io/resume/resume.html)
 
 # 说明
 1. 作为程序媛一枚，请原谅此份简历渣渣的设计；
