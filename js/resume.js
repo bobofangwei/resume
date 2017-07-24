@@ -113,6 +113,7 @@ $(function() {
 
             }else if(index===5){
                 $curSection.find('.tixing-wrapper').css({'transform':'translate3d(0,0,0)'});
+                $curSection.find('.general-content-wrapper').css({'transform':'translate3d(0,0,0)'});
             } else if(index===6){
                  $curSection.find('.project-list-large .project-img-wrapper-long').css({'height':'65%'});
                  $curSection.find('.project-list-large .project-img-wrapper-short').css({'height':'45%'});
