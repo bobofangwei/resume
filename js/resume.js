@@ -136,7 +136,7 @@ $(function() {
                 })
             }
             $curSection.find('[style]').removeAttr('style');
-        },
+        }
     });
     reLayout();
     drawPercent();

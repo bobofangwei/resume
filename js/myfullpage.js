@@ -11,9 +11,9 @@
             this.section = this.$elem.find(this.settings.selectors.section);
             this.layoutDirection = this.settings.direction === 'vertical' ? true : false;
             this.sectionCount = this.getSectionCount();
-            //当前所处的幻灯片索引，如果正在滑动，代表滑动结束之后的幻灯片索引
-            //this.curIndex = (this.settings.index >= 0 && this.settings.index <= this.sectionCount - 1) ? this.settings.index : 0;
+            //滑动开始前的幻灯片索引
             this.prevIndex = -1;
+            //滑动结束后的幻灯片索引，不过由于初始化的时候，为了呈现首页的动画效果，初始赋值为-1
             this.curIndex = -1;
             //记录每次滑动的方向,初始值为undefined,可选有down,up
             this.direction = undefined;
@@ -34,11 +34,12 @@
                 this.__updateNav();
             }
             this.__initEvent();
-
+            console.log('session index',sessionStorage.getItem('index'));
             // if (this.settings.index > 0 && this.settings.index < this.sectionCount) {
             var self = this;
             setTimeout(function() {
-                self.moveTo(self.settings.index || 0);
+                //之所以调用，是为了呈现第一屏的动画效果
+                self.moveTo(sessionStorage.getItem('index')||self.settings.index || 0);
             }, 0);
             //this.moveTo(this.settings.index||0);
             // }
@@ -91,6 +92,7 @@
             }
             this.prevIndex = this.curIndex;
             this.curIndex++;
+            sessionStorage.setItem('index',this.curIndex);
             if (this.curIndex >= this.sectionCount) {
                 this.curIndex = this.settings.loop ? 0 : this.sectionCount - 1;
             }
@@ -104,6 +106,7 @@
             }
             this.prevIndex = this.curIndex;
             this.curIndex--;
+            sessionStorage.setItem('index',this.curIndex);
             if (this.curIndex < 0) {
                 this.curIndex = this.settings.loop ? this.sectionCount - 1 : 0;
             }
@@ -121,7 +124,7 @@
             }
             this.prevIndex = this.curIndex;
             this.curIndex = index;
-
+            sessionStorage.setItem('index',this.curIndex);
             if (this.prevIndex != this.curIndex) {
                 this.__scrollSlide();
             }
