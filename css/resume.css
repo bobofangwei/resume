@@ -400,7 +400,7 @@ body {
 .exprerience-desc {
     list-style: square;
     color: #333;
-    padding-left: 15px;
+    padding:0  15px;
 }
 
 .desc-item {

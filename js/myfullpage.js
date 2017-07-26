@@ -9,7 +9,6 @@
         init: function() {
             this.sections = this.$elem.find(this.settings.selectors.sections);
             this.section = this.$elem.find(this.settings.selectors.section);
-
             this.layoutDirection = this.settings.direction === 'vertical' ? true : false;
             this.sectionCount = this.getSectionCount();
             //当前所处的幻灯片索引，如果正在滑动，代表滑动结束之后的幻灯片索引
