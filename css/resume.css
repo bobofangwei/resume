@@ -524,6 +524,7 @@ body {
     width: 150px;
     height: 150px;
     position: absolute;
+    top:-75px;
 }
 
 .skill-list .timeline-half-right .skill-canvas-wrapper {
