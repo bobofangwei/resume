@@ -1,4 +1,21 @@
 (function($) {
+    //确定浏览器前缀，解决兼容性问题
+    var _prefix=(function(tmp){
+        var prefixs=['webkit','moz','o','ms'];
+        var i,len,prop;
+        //不需要添加前缀
+        if(tmp.style['transition']!==undefined){
+            return '';
+        }
+        for(i=0,len=prefixs.length;i<len;i++){
+            prop=prefixs[i]+'Transition';
+            if(tmp.style[prop]!==undefined){
+                return '-'+prefixs[i]+'-';
+            }
+        }
+
+    })(document.createElement('div'));
+    console.log('_prefix',_prefix);
     var MyFullpage = {
         setup: function($elem, options) {
             this.$elem = $elem;
@@ -18,10 +35,7 @@
             //记录每次滑动的方向,初始值为undefined,可选有down,up
             this.direction = undefined;
             this.isRunning = false;
-            this.sections.css('transition', 'transform ' + this.settings.scrollingSpeed + 'ms ' + this.settings.easing);
-            // this.sections.css('webkitTransition', 'webkitTransform  ' + this.settings.scrollingSpeed + 'ms ' + this.settings.easing);
-            // this.sections.css('MozTransition', 'MozTransform   ' + this.settings.scrollingSpeed + 'ms ' + this.settings.easing);
-             this.sections.css('-ms-transition', '-ms-transform   ' + this.settings.scrollingSpeed + 'ms ' + this.settings.easing);
+            this.sections.css(_prefix+'transition', 'all ' + this.settings.scrollingSpeed + 'ms ' + this.settings.easing);
 
             //如果是横屏
             if (!this.layoutDirection) {
@@ -49,10 +63,10 @@
             //监听滚轮事件
             var self = this;
             //阻止子元素的transitionend冒泡
-            this.sections.on('transitionend', '*', function(event) {
+            this.sections.on('transitionend webkitTransitionend oTransitionend MozTransitionend', '*', function(event) {
                 event.stopPropagation();
             });
-            this.sections.on('transitionend', function(event) {
+            this.sections.on('transitionend webkitTransitionend oTransitionend MozTransitionend', function(event) {
                 self.isRunning = false;
                 self.direction = undefined;
                 if (self.settings.onLoad) {
@@ -176,17 +190,11 @@
                 this.__updateNav();
             }
             if (this.layoutDirection) {
-                this.sections.css('transform', 'translateY(-' + this.curIndex * 100 + '%)');
-                // this.sections.css('WebkitTransform', 'translateY(-' + this.curIndex * 100 + '%)');
-                 this.sections.css('-ms-transform', 'translateY(-' + this.curIndex * 100 + '%)');
-                //    this.sections.css('MozTransform', 'translateY(-' + this.curIndex * 100 + '%)');
-
+                this.sections.css(_prefix+'transform', 'translateY(-' + this.curIndex * 100 + '%)');
+                
             } else {
                 var left = (this.curIndex * 100 / this.sectionCount).toFixed(2);
-                this.sections.css('transform', 'translateX(-' + left + '%)');
-                //     this.sections.css('WebkitTransform', 'translateX(-' + left + '%)');
-                  this.sections.css('-ms-transform', 'translateX(-' + left + '%)');
-                //     this.sections.css('MozTransform', 'translateX(-' + left + '%)');
+                this.sections.css(_prefix+'transform', 'translateX(-' + left + '%)');
             }
         }
 
