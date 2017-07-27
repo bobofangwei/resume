@@ -38,8 +38,8 @@
             // if (this.settings.index > 0 && this.settings.index < this.sectionCount) {
             var self = this;
             setTimeout(function() {
-                //之所以调用，是为了呈现第一屏的动画效果
-                self.moveTo(sessionStorage.getItem('index')||self.settings.index || 0);
+                //初次加载默认滑动到0幻灯片，主要是为了呈现第一屏的动画效果
+                self.moveTo(+sessionStorage.getItem('index')||self.settings.index || 0);
             }, 0);
             //this.moveTo(this.settings.index||0);
             // }

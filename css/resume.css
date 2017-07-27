@@ -1132,6 +1132,9 @@ body {
     color:#007D9B;
     font-size:16px;  
 }
+.project-label-link{
+    color:#007D9B;
+}
 .project-skill{
     font-size:12px;
     width:90%;
@@ -1142,38 +1145,17 @@ body {
     font-size:12px;
     line-height: 1.5;
     color:#333;
+    text-align:left;
 }
 
-/*
+ 
 @media screen and (max-width:768px){
-    .project-list{
-        flex-direction:column;
-        justify-item:space-around;
-    }
-    .project-item{
-        overflow: hidden;
-        flex:auto;  
-        text-align:left;      
-    }
-    .project-img-wrapper{
-        width:180px; 
-        position:static;
-        display: inline-block;
-        margin-left:15px;       
-    }
-    .project-img-wrapper:before{
+     .project-item:nth-child(2){
         display: none;
-    }
-    .project-img-wrapper-short,.project-img-wrapper-long{
-        height:auto;
-    }
-    .project-img-outter{
-        position:static; 
-        margin-left:0;       
-    }
-    .project-text{
-        display: inline-block;
-    }
+     }
+     .project-item:nth-child(4){
+        display: none;
+     }
 }
-*/
+ 
 /*section7 end*/
