@@ -48,15 +48,19 @@
                 this.__updateNav();
             }
             this.__initEvent();
-            console.log('session index',sessionStorage.getItem('index'));
-            // if (this.settings.index > 0 && this.settings.index < this.sectionCount) {
-            var self = this;
+                    var self = this;
+            // 测试发现，IE11本地测试不支持sessionStorage，只有放到服务器上才有效
+            var initIndex=0;
+            if(sessionStorage){
+                initIndex=+sessionStorage.getItem('index');
+            }else{
+                initIndex=self.settings.index||0;
+            }
             setTimeout(function() {
                 //初次加载默认滑动到0幻灯片，主要是为了呈现第一屏的动画效果
-                self.moveTo(+sessionStorage.getItem('index')||self.settings.index || 0);
+                self.moveTo(initIndex);
             }, 0);
-            //this.moveTo(this.settings.index||0);
-            // }
+
 
         },
         __initEvent: function() {
@@ -106,7 +110,9 @@
             }
             this.prevIndex = this.curIndex;
             this.curIndex++;
-            sessionStorage.setItem('index',this.curIndex);
+            if(sessionStorage){
+                sessionStorage.setItem('index',this.curIndex);
+            }            
             if (this.curIndex >= this.sectionCount) {
                 this.curIndex = this.settings.loop ? 0 : this.sectionCount - 1;
             }
@@ -120,7 +126,9 @@
             }
             this.prevIndex = this.curIndex;
             this.curIndex--;
-            sessionStorage.setItem('index',this.curIndex);
+            if(sessionStorage){
+                sessionStorage.setItem('index',this.curIndex);
+            }            
             if (this.curIndex < 0) {
                 this.curIndex = this.settings.loop ? this.sectionCount - 1 : 0;
             }
@@ -138,7 +146,9 @@
             }
             this.prevIndex = this.curIndex;
             this.curIndex = index;
-            sessionStorage.setItem('index',this.curIndex);
+            if(sessionStorage){
+                sessionStorage.setItem('index',this.curIndex);
+            }
             if (this.prevIndex != this.curIndex) {
                 this.__scrollSlide();
             }
